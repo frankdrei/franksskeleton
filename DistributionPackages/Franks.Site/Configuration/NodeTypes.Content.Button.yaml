@@ -11,8 +11,9 @@
   properties:
     label:
       ui:
-        aloha:
-          placeholder: 'Button Beschriftung'
+        inline:
+          editorOptions:
+            placeholder: 'Button Beschriftung'
       options:
         silhouette: 'text.plain'
     link:
