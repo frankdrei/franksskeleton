@@ -3,11 +3,11 @@ prototype(Franks.Site:Component.Navigation.LevelRenderer) < prototype(Neos.Fusio
     node = ${node}
     itemTitle = ${q(node).property('title')}
     itemClass = Neos.Fusion:RawArray {
-        base = 'navigation-item'
+        base = 'nav-item'
         level = ${'navigation-item--level-' + nodeDepth}
-        current = 'navigation-item--state-current'
+        current = 'nav-item active current'
         current.@if.isCurrent = ${node == documentNode}
-        active = 'navigation-item--state-active'
+        active = 'nav-item active'
         active.@if.isActive = ${node == documentNode || (nodeDepth != 1 && (q(documentNode).parents('[_identifier = "' + node.identifier + '"]').count() > 0))}
     }
     navigationClass = ${'navigation-level navigation-level--level-' + (nodeDepth + 1)}
@@ -20,7 +20,7 @@ prototype(Franks.Site:Component.Navigation.LevelRenderer) < prototype(Neos.Fusio
 
     renderer = afx`
         <li class={props.itemClass}>
-            <Carbon.Link:Link title={props.itemTitle} node={node} additionalClass="navigation-link" backendLink={true} />
+            <Carbon.Link:Link title={props.itemTitle} node={node} additionalClass="nav-link" backendLink={true} />
             <ul @if.hasItems={props.navigationItems} class={props.navigationClass}>
                 {props.navigationItems}
             </ul>

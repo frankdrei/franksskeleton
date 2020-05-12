@@ -4,10 +4,23 @@ prototype(Franks.Site:Document.AbstractPage) < prototype(Neos.Neos:Page) {
             renderer = afx`
                 <meta http-equiv="x-ua-compatible" content="ie=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+                <Franks.Site:Helper.StyleTag path="resource://Franks.Site/Public/Frontend/Bootstrap/4.4.1/css/bootstrap.min.css" />
+	            <Franks.Site:Helper.StyleTag path="resource://Franks.Site/Public/Frontend/Styles/Main.css" />
+
+                <Franks.Site:Helper.ScriptTag path="resource://Franks.Site/Public/Frontend/Libraries/jQuery/jquery-3.5.1.min.js" />
+                <Franks.Site:Helper.ScriptTag path="resource://Franks.Site/Public/Frontend/Bootstrap/4.4.1/js/bootstrap.bundle.min.js" />
+                <Franks.Site:Helper.ScriptTag path="resource://Franks.Site/Public/Frontend/Scripts/Main.js" />
             `
         }
     }
-    body = Franks.Site:Component.DefaultLayout {
+    htmlTag  {
+        attributes.class = 'h-100'
+    }
+    bodyTag {
+        attributes.class = 'd-flex flex-column h-100'
+    }
+    body = Franks.Site:Component.BootstrapLayout {
         content = ''
         @process.normalize = CodeQ.UnicodeNormalizer:Normalizer
     }

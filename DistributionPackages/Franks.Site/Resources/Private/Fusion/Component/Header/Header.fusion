@@ -2,11 +2,31 @@ prototype(Franks.Site:Component.Header) < prototype(Neos.Fusion:Component) {
     homeLink = Neos.Neos:NodeUri {
         node = ${site}
     }
+    logoUri = Neos.Fusion:ResourceUri {
+        path = 'resource://Franks.Site/Public/Frontend/Images/dreitzner_logo_big_weiss.svg'
+    }
 
     renderer = afx`
-        <header class="main-header">
-            <a class="logo" href={props.homeLink}>BRAND NAME</a>
-            <Franks.Site:Component.Navigation startingPoint={site} />
-        </header>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="logo" href={props.homeLink}>
+                <img src={props.logoUri} alt="dreitzner.de" height="56" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="main-navbar">
+                <Franks.Site:Component.Navigation startingPoint={site} />
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+
+
+
     `
 }

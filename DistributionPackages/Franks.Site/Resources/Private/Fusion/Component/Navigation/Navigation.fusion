@@ -4,7 +4,7 @@ prototype(Franks.Site:Component.Navigation) < prototype(Franks.Site:Component.Na
 
     // overrides the
     renderer = afx`
-        <ul class="navigation">
+        <ul class="navbar-nav mr-auto">
             {props.navigationItems}
         </ul>
     `

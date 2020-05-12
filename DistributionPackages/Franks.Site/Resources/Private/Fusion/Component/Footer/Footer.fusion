@@ -14,10 +14,14 @@ prototype(Franks.Site:Component.Footer) < prototype(Neos.Neos:ContentComponent) 
     }
 
     renderer = afx`
-        <footer class="main-footer">
-            <div>{props.footerInfo}</div>
-            <div>&copy; {props.year}</div>
-            {props.footerItems}
+        <footer class="footer mt-auto py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md">{props.footerInfo}</div>
+                    <div class="col-12 col-md">&copy; {props.year}</div>
+                    <div class="col-12 col-md">{props.footerItems}</div>
+                </div>
+            </div>
         </footer>
     `
 }
